@@ -78,7 +78,7 @@ function App() {
     <div className="App">
       <header className="header">
         <div className="container">
-          <h1 className="logo">JobHub.ch</h1>
+          <h1 className="logo">⚡ EVJobs.ch</h1>
           <nav>
             <button onClick={() => setCurrentPage('home')} className={currentPage === 'home' ? 'active' : ''}>
               Home
@@ -121,26 +121,26 @@ function HomePage({ onCreateJob }) {
   return (
     <div className="container home">
       <div className="hero">
-        <h2>Finde deinen Traumjob.<br/>Oder lass dich finden.</h2>
-        <p>Die Job-Plattform wo sich Menschen austauschen, vernetzen und Jobs finden.</p>
+        <h2>Die #1 Plattform für<br/><span>eMobility Jobs.</span></h2>
+        <p>Finde Jobs in der eMobility Branche oder lass dich finden.</p>
         <div className="hero-buttons">
           <button className="btn-primary btn-large">Job suchen</button>
           <button className="btn-secondary btn-large" onClick={onCreateJob}>Job posten</button>
         </div>
       </div>
-      
+
       <div className="features">
         <div className="feature-card">
-          <h3>🔍 Suchen & Finden</h3>
-          <p>Finde Jobs oder poste dass du suchst</p>
+          <h3>⚡ EV Jobs finden</h3>
+          <p>Alle eMobility Jobs der Schweiz an einem Ort</p>
         </div>
         <div className="feature-card">
-          <h3>💬 Community</h3>
-          <p>Tausche dich mit anderen aus</p>
+          <h3>🔋 Community</h3>
+          <p>Vernetze dich mit eMobility Profis</p>
         </div>
         <div className="feature-card">
-          <h3>🚀 Keine Floskeln</h3>
-          <p>Nur echte Job-Gespräche</p>
+          <h3>🚗 Nur eMobility</h3>
+          <p>Keine irrelevanten Jobs - nur deine Branche</p>
         </div>
       </div>
     </div>
@@ -161,28 +161,19 @@ function JobsPage({ jobs, onCreateJob }) {
         <h2>Aktuelle Jobs</h2>
         <button className="btn-primary" onClick={onCreateJob}>+ Job erstellen</button>
       </div>
-      
+
       <div className="filters">
-        <button 
-          className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
-          onClick={() => setFilter('all')}
-        >
+        <button className={`filter-btn ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>
           Alle
         </button>
-        <button 
-          className={`filter-btn ${filter === 'biete' ? 'active' : ''}`}
-          onClick={() => setFilter('biete')}
-        >
+        <button className={`filter-btn ${filter === 'biete' ? 'active' : ''}`} onClick={() => setFilter('biete')}>
           Biete Job
         </button>
-        <button 
-          className={`filter-btn ${filter === 'suche' ? 'active' : ''}`}
-          onClick={() => setFilter('suche')}
-        >
+        <button className={`filter-btn ${filter === 'suche' ? 'active' : ''}`} onClick={() => setFilter('suche')}>
           Suche Job
         </button>
       </div>
-      
+
       <div className="jobs-grid">
         {filteredJobs.length === 0 ? (
           <p className="empty-state">Noch keine Jobs vorhanden. Erstelle den ersten!</p>
@@ -219,7 +210,6 @@ function CommunityPage({ posts, onCreatePost }) {
     const posted = new Date(dateString);
     const diffMs = now - posted;
     const diffMins = Math.floor(diffMs / 60000);
-    
     if (diffMins < 1) return 'gerade eben';
     if (diffMins < 60) return `vor ${diffMins} Min`;
     const diffHours = Math.floor(diffMins / 60);
@@ -233,11 +223,11 @@ function CommunityPage({ posts, onCreatePost }) {
       <div className="page-header">
         <div>
           <h2>Community</h2>
-          <p className="subtitle">Tausche dich mit anderen aus - nur über Jobs!</p>
+          <p className="subtitle">Nur für eMobility Profis!</p>
         </div>
         <button className="btn-primary" onClick={onCreatePost}>+ Post erstellen</button>
       </div>
-      
+
       <div className="community-posts">
         {posts.length === 0 ? (
           <p className="empty-state">Noch keine Posts. Sei der Erste!</p>
