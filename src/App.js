@@ -5,6 +5,7 @@ import { auth, db } from './firebase';
 import Auth from './Auth';
 import CreateJob from './CreateJob';
 import CreatePost from './CreatePost';
+import AnimatedContent from './AnimatedContent';
 import './App.css';
 
 function App() {
@@ -121,27 +122,39 @@ function HomePage({ onCreateJob }) {
   return (
     <div className="container home">
       <div className="hero">
-        <h2>Die #1 Plattform für<br/><span>eMobility Jobs.</span></h2>
-        <p>Finde Jobs in der eMobility Branche oder lass dich finden.</p>
-        <div className="hero-buttons">
-          <button className="btn-primary btn-large">Job suchen</button>
-          <button className="btn-secondary btn-large" onClick={onCreateJob}>Job posten</button>
-        </div>
+        <AnimatedContent distance={50} duration={1} delay={0}>
+          <h2>Die #1 Plattform für<br/><span>eMobility Jobs.</span></h2>
+        </AnimatedContent>
+        <AnimatedContent distance={50} duration={1} delay={0.2}>
+          <p>Finde Jobs in der eMobility Branche oder lass dich finden.</p>
+        </AnimatedContent>
+        <AnimatedContent distance={50} duration={1} delay={0.4}>
+          <div className="hero-buttons">
+            <button className="btn-primary btn-large">Job suchen</button>
+            <button className="btn-secondary btn-large" onClick={onCreateJob}>Job posten</button>
+          </div>
+        </AnimatedContent>
       </div>
 
       <div className="features">
-        <div className="feature-card">
-          <h3>⚡ EV Jobs finden</h3>
-          <p>Alle eMobility Jobs der Schweiz an einem Ort</p>
-        </div>
-        <div className="feature-card">
-          <h3>🔋 Community</h3>
-          <p>Vernetze dich mit eMobility Profis</p>
-        </div>
-        <div className="feature-card">
-          <h3>🚗 Nur eMobility</h3>
-          <p>Keine irrelevanten Jobs - nur deine Branche</p>
-        </div>
+        <AnimatedContent distance={50} duration={0.8} delay={0}>
+          <div className="feature-card" onMouseMove={(e) => { const rect = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`); }}>
+            <h3>⚡ EV Jobs finden</h3>
+            <p>Alle eMobility Jobs der Schweiz an einem Ort</p>
+          </div>
+        </AnimatedContent>
+        <AnimatedContent distance={50} duration={0.8} delay={0.2}>
+          <div className="feature-card" onMouseMove={(e) => { const rect = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`); }}>
+            <h3>🔋 Community</h3>
+            <p>Vernetze dich mit eMobility Profis</p>
+          </div>
+        </AnimatedContent>
+        <AnimatedContent distance={50} duration={0.8} delay={0.4}>
+          <div className="feature-card" onMouseMove={(e) => { const rect = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`); }}>
+            <h3>🚗 Nur eMobility</h3>
+            <p>Keine irrelevanten Jobs - nur deine Branche</p>
+          </div>
+        </AnimatedContent>
       </div>
     </div>
   );
