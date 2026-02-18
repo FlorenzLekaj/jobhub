@@ -18,7 +18,7 @@ function CreatePost({ onClose, onPostCreated }) {
         content,
         userId: auth.currentUser.uid,
         userEmail: auth.currentUser.email,
-        userName: auth.currentUser.email.split('@')[0], // Username aus Email
+        userName: auth.currentUser.displayName || auth.currentUser.email.split('@')[0],
         replies: 0,
         createdAt: new Date().toISOString()
       };
